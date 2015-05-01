@@ -1,10 +1,10 @@
-%PROBLEMA n°1
+%PROBLEMA n°1 Problema 4 
 
 %parametros
-%cant_iterac = 100;%200
+
 clear all;
 cant_iterac = 50;
-max_eps =.5;
+max_eps =pi;
 %Bounds = [-10 10]; 
 %Bounds = [-4*pi 4*pi];
 %Bounds = [-50 50];

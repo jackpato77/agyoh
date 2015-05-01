@@ -4,7 +4,7 @@
 %cant_iterac = 100;%200
 clear all;
 cant_iterac = 200;
-max_eps = 3;
+max_eps = pi;
 %Bounds = [-10 10]; 
 %Bounds = [-4*pi 4*pi];
 %Bounds = [-50 50];

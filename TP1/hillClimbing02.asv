@@ -58,7 +58,7 @@ Trace_R = []; % para guardar los vectores dirección
 %función de la cantidad de variables de la ecuación evaluada "size(Bounds,1)". Ahora
 %no es la cantidad total de iterciones sino la cantidad de valores que no
 %superan a la solución actual
-cant_iterac=10^size(Bounds,1);
+cant_iterac=10^size(Bounds,1)/size(Bounds,1);
 
 % repetir hasta que se cumpla la condicion de terminacion
 while sigue
@@ -87,7 +87,10 @@ while sigue
     if Valor > MejorValor
         X0 = X; 
         MejorValor = Valor;
-        cnt=1; %inicializamos nuevamente el contador de malas soluciones
+        cnt=1;
+        %c_malas=0;
+    %else
+    %    c_malas=c_malas+1;
     end
     
     %guardo el resultado
@@ -101,8 +104,12 @@ while sigue
         sigue = 0;
     end
     cnt = cnt + 1;
+    %if c_malas > m_malas
+    %    sigue = 0;
+    %end
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-       
+    
+    %c_intentos=c_intentos+1;
 end
 
 MejorX = X0;
