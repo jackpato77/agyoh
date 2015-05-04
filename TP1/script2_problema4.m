@@ -50,5 +50,5 @@ for i = 1:cantidad_pruebas
 end
 
    f_eval=f;
-   Titulo ='TP1 - Problema Nº4';
+   Titulo ='TP1 - Problema Nro 4';
    graficar(f_eval, Soluciones, Valores, Bounds, Titulo)

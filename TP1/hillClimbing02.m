@@ -105,7 +105,7 @@ while sigue
        
 end
 figure(4); clf;
-title('TP1 - Problema Nº4 - Puntos de R sin normalizar');
+title('TP1 - Problema Nro 4: Puntos de R sin normalizar');
 hold on;
 grid on;
 x=Trace_R(:,1);
