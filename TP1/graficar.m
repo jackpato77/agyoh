@@ -103,7 +103,7 @@ case 2
     plot3(Soluciones(1,1), Soluciones(1,2), Valores(1), 'bo', 'MarkerFaceColor', [0 0 1]);
     for j = 1:Cant
         plot3(Soluciones(j,1), Soluciones(j,2), Valores(j), 'bo', 'MarkerFaceColor', cm(Cant-j+1,:), 'color', cm(Cant-j+1,:));
-    end
+    end 
     xlabel('x'); 
     ylabel('y'); 
     zlabel('f(x,y)');
@@ -130,7 +130,7 @@ figure(2); clf;
 plot(1:length(Valores), Valores, 'r');
 grid on;
 xlabel('Iteracion'); ylabel('Mejor valor de f');
-title('Mejor valor de f vs. iteraciones');
+title([Titulo ': Mejor valor de f vs. iteraciones']);
         
 disp(' ');
 disp(Titulo);

@@ -58,7 +58,7 @@ Trace_R = []; % para guardar los vectores dirección
 %función de la cantidad de variables de la ecuación evaluada "size(Bounds,1)". Ahora
 %no es la cantidad total de iterciones sino la cantidad de valores que no
 %superan a la solución actual
-cant_iterac=10^size(Bounds,1);
+cant_iterac=3+floor(10^size(Bounds,1)*rand());
 
 % repetir hasta que se cumpla la condicion de terminacion
 while sigue
@@ -104,6 +104,21 @@ while sigue
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
        
 end
+figure(4); clf;
+title('TP1 - Problema Nº4 - Puntos de R sin normalizar');
+hold on;
+grid on;
+x=Trace_R(:,1);
+y=Trace_R(:,2);
+z=zeros(length(Trace_R(:,1)),1);
+for j=1:length(Trace_R(:,1))
+    %plot3(x(j),y(j),z(j));
+    %plot(x(j),y(j));
+    plot(x(j),y(j), 'bo', 'MarkerFaceColor', [0 0 1]);
+end
+%disp(Trace_R);
+disp('cantidad de malas');
+disp(cant_iterac);
 
 MejorX = X0;
 %Trace_R;
