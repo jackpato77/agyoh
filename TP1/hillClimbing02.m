@@ -57,8 +57,9 @@ Trace_R = []; % para guardar los vectores dirección
 %cambiamos la cantidad de iteraciones para que ahora tome valores, en
 %función de la cantidad de variables de la ecuación evaluada "size(Bounds,1)". Ahora
 %no es la cantidad total de iterciones sino la cantidad de valores que no
-%superan a la solución actual
-cant_iterac=3+floor(10^size(Bounds,1)*rand());
+%superan a la solución actual.
+%genera un nro aleatorio entre el 30% y el 70% de 10^n 
+cant_iterac=ceil( 10^size(Bounds,1) * (0.4*rand()+0.3) );
 
 % repetir hasta que se cumpla la condicion de terminacion
 while sigue

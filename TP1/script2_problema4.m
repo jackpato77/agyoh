@@ -26,7 +26,7 @@ Bounds = [-4*pi 4*pi;-4*pi 4*pi];
 f = @(x) -0.01*(x(:,1).^2+x(:,2).^2) + cos(2.*x(:,1)) + cos(2.*x(:,2));
 
 %cantidad de veces que tiro el algoritmo
-cantidad_pruebas = 10; %cantidad de veces que tiro el algoritmo
+cantidad_pruebas = 1; %cantidad de veces que tiro el algoritmo
 
 %ejecuto las pruebas
 for i = 1:cantidad_pruebas
