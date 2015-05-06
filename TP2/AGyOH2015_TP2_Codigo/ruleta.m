@@ -13,18 +13,77 @@
 % - S: vector 1xn con los numeros de soluciones obtenidas
 % - P: vector de probabilidades
 
+%%%% me parece que la ultimo (el menor valor de F) no tiene ninguna chance de salir
+%%%%
+
 function [S, P] = ruleta(F, epsilon, num_tiros)
+	S=[];
+	disp('ruleta: F Original');
+	disp(F);
+	
+	%ordenar
+	F_ord=sort(F,'descend');
+	disp('ruleta: F ordenada');
+	disp(F_ord);
+	F=F_ord;
+	
+	P = probabilidad(F, epsilon);
+	%calcular los puntos de corte
+	R=cumsum(P);
+	disp('ruleta: Puntos de Corte');
+	disp(R);
 
-P = probabilidad(F, epsilon);
+	tiros=[];
+	for it=1:num_tiros
+		tiro=rand();
+		tiros=[tiros tiro];
+		disp(it);
+		disp(tiro);
+		for i=1:length(F)
+			%si el tiro queda al principio
+			if tiro < R(i)				
+				break;
+			end %if tiro < R(i)
+			%si el tiro queda en un punto intermedio
+			if 	tiro >= R(i) && tiro <= R(i+1)
+				break; 
+			end %if tiro > R(i) && tiro < R(i+1)
+		end %for j:lenght(F)-1
+		disp(F(i));
+		S=[S F(i)];
+	end %for it=1:num_tiros
 
-% ... COMPLETAR AQUI ....
-
-end %function
+	disp('----------FIN RULETA');
+	disp(strcat('       F ordenada:   ',mat2str(F)));
+	disp(strcat('R puntos de corte:   ',mat2str(R)));
+	disp(strcat(' tiros aleatorios:   ',mat2str(tiros)));
+	disp(strcat('    seleccionados:   ',mat2str(S)));
+end %function [S, P] = ruleta(F, epsilon, num_tiros)
 
 
 function [P] = probabilidad(F, epsilon)
+	%minimo
+	F_min=min(F);
+	disp('ruleta: minimo');
+	disp(F_min);
 
-% ... COMPLETAR AQUI ....
+	%ajustar los valores de F
+	G=F-F_min;
+	disp('ruleta: F-Min');
+	disp(G);
+	
+	%Adopto epsilon
+	G=G+epsilon;
+	disp('ruleta: G+epsilon');
+	disp(G);
 
-end %function
+	%Suma de elementos G
+	T=sum(G);
+	disp('ruleta: Suma de elemntos de G');
+	disp(T);
 
+	%Calculo la Probabilidad
+	P=G./T;
+	disp('ruleta: Probabilidad');
+	disp(P);
+end %function [P] = probabilidad(F, epsilon)
