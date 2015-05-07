@@ -16,9 +16,15 @@
 %   IMPORTANTE: La ultima columna debe reservarse para guardar los valores de fitness.
 
 function [Pop] = init(cant_soluc, Bounds, f_eval)
-
-cant_variables = size(Bounds,1);
-
-% ... COMPLETAR AQUI ....
-
-end
+	cant_variables = size(Bounds,1);
+	Pop=[]
+	%Pop=zeros(rows(B),columns(B)+1);
+	for i=1:cant_soluc
+		%X0=rand(1,cant_variables) .* (Bounds(:,2)-Bounds(:,1))' + Bounds(:,1)';
+		x=rand * (Bounds(1,2) - Bounds(1,1)) + Bounds(1,1);
+		y=rand * (Bounds(2,2) - Bounds(2,1)) + Bounds(2,1);
+		z=f_eval([x y]);
+		Pop=[Pop; x y z];	
+	end %for i=1:cant_soluc
+	disp(Pop);
+end %function [Pop] = init(cant_soluc, Bounds, f_eval)

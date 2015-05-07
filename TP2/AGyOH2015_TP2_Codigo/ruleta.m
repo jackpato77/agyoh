@@ -39,7 +39,8 @@ function [S, P] = ruleta(F, epsilon, num_tiros)
 		tiros=[tiros tiro];
 		disp(it);
 		disp(tiro);
-		for i=1:length(F)
+		cantMaxF=length(F);
+		for i=1:cantMaxF
 			%si el tiro queda al principio
 			if tiro < R(i)				
 				break;
@@ -48,7 +49,7 @@ function [S, P] = ruleta(F, epsilon, num_tiros)
 			if 	tiro >= R(i) && tiro <= R(i+1)
 				break; 
 			end %if tiro > R(i) && tiro < R(i+1)
-		end %for j:lenght(F)-1
+		end %for j:cantMaxF
 		disp(F(i));
 		S=[S F(i)];
 	end %for it=1:num_tiros
